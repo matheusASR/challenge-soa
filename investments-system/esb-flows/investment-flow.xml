@@ -1,0 +1,17 @@
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="InvestmentProxy" startOnLoad="true" transports="https,http">
+    <target>
+        <inSequence>
+            <log level="full"/>
+            <send>
+                <endpoint>
+                    <address uri="http://localhost:8080/api/v1/recommendations/conservative"/>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <log level="full"/>
+            <send/>
+        </outSequence>
+    </target>
+    <description>WSO2 Flow Mock - encaminha requisição SOAP para REST API</description>
+</proxy>
